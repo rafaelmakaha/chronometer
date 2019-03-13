@@ -1,11 +1,23 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import Screen from './src/components/screen';
 
 export default class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state ={
+      start: false,
+      time: "",
+    }
+  }
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
+        <Screen time={this.state.time}/>
+        <Button
+          title="Start"
+          onPress={() => this.setState({start: true})}
+        />
       </View>
     );
   }
